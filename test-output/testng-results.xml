@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-03-05T19:59:06 IST" name="Default suite" finished-at="2024-03-05T19:59:10 IST" duration-ms="3794">
+    <groups>
+    </groups>
+    <test started-at="2024-03-05T19:59:06 IST" name="Default test" finished-at="2024-03-05T19:59:10 IST" duration-ms="3794">
+      <class name="opensooq_selenium.Main">
+        <test-method is-config="true" signature="setup()[pri:0, instance:opensooq_selenium.Main@7a560583]" started-at="2024-03-05T19:59:06 IST" name="setup" finished-at="2024-03-05T19:59:07 IST" duration-ms="179" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Home()[pri:0, instance:opensooq_selenium.Main@7a560583]" started-at="2024-03-05T19:59:07 IST" name="Home" finished-at="2024-03-05T19:59:09 IST" duration-ms="2352" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Home -->
+        <test-method signature="HomePage_En()[pri:0, instance:opensooq_selenium.Main@7a560583]" started-at="2024-03-05T19:59:09 IST" name="HomePage_En" finished-at="2024-03-05T19:59:10 IST" duration-ms="1099" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- HomePage_En -->
+        <test-method is-config="true" signature="closepage()[pri:0, instance:opensooq_selenium.Main@7a560583]" started-at="2024-03-05T19:59:10 IST" name="closepage" finished-at="2024-03-05T19:59:10 IST" duration-ms="120" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closepage -->
+      </class> <!-- opensooq_selenium.Main -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
