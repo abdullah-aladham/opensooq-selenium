@@ -1,4 +1,3 @@
-//# opensooq-selenium
 <h1>opensooq-selenium</h1>
 <div>
   <p>Welcome to <code>opensooq-selenium</code> Repo which is about testing OpenSooq Using java Selenium <code>v4.17.0</code><br>
