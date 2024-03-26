@@ -2,13 +2,17 @@ package opensooq_selenium;
 
 
 
+import org.testng.Assert;
 import static org.testng.Assert.assertEquals;
 //import static org.testng.Assert.assertFalse;
+import  static org.testng.Assert.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
 //import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +23,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.openqa.selenium.TakesScreenshot;
 
-@Test
+
 public class Main {
 	
 	
@@ -30,7 +34,7 @@ public class Main {
 
 		driver.manage().window().maximize();
 	}
-
+	@Test(groups="Home")
 	public void Home() 
 	{
 		
@@ -38,42 +42,46 @@ public class Main {
 	
 	String Expected="السوق المفتوح فلسطين : سيارات : عقارات : بيوت : للبيع : خدمات : وظائف";
 	String Actual=driver.getTitle();
-	assertEquals(Actual, Expected);
+	Assert.assertEquals(Actual, Expected);
 	//AssertFalse(Actual,Expected);
 	
-	File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-	try {
-	FileUtils.copyFile(screenshotFile , new File("C:\\Users\\Msys\\eclipse-workspace\\opensooq_selenium\\src\\screenshots\\Home\\Home.png"));
-	} catch (IOException e) {
-	// TODO Auto-generated catch block
-	e.printStackTrace();
-	} 
-
-
-
 	}
+	
+ public void TakeScreen() {
+		File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		try {
+		FileUtils.copyFile(screenshotFile , new File("C:\\Users\\Msys\\eclipse-workspace\\opensooq_selenium\\src\\screenshots\\Home\\Home.png"));
+		} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		}  
+ }
+
+
+	
 //	@AfterTest(groups="opensooq")
 //	public void Final() 
 //	{
 //		driver.close();
 //	}
-	
+	@Test
 	public void HomePage_En() {
 		driver.get("https:jo.opensooq.com/en");
+		TakeScreen();
 	}
-//	@Test(priority=2,groups="Login")
-//	public void login() {
-//		boolean tc=true;
-//		driver.findElement(By.xpath("/html/body/div[3]/header[1]/section/div[2]/button[4]")).click();
-//		driver.findElement(By.xpath("/html/body/div[6]/div/div/div/div/div/div/div[2]/div[1]/div[1]/div/div/input")).sendKeys("123456789");
-//		driver.findElement(By.xpath("/html/body/div[6]/div/div/div/div/div/div/div[2]/div[1]/button")).click();
-//		if(driver.findElement(By.xpath("//*[@id='loginScreen']/div[2]/div[1]/div[1]/div/span"))!=null) {
-//		assertFalse(tc);
-//			
-//		}
+	@Test(priority=2,groups="Login")
+	public void login() {
+		driver.findElement(By.xpath("/html/body/div[3]/header[1]/section/div[2]/button[4]")).click();
+		driver.findElement(By.xpath("/html/body/div[6]/div/div/div/div/div/div/div[2]/div[1]/div[1]/div/div/input")).sendKeys("123456789");
+		driver.findElement(By.xpath("/html/body/div[6]/div/div/div/div/div/div/div[2]/div[1]/button")).click();
+	    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+
+		String err=driver.findElement(By.xpath("//span[@class='font-12 redColor block mt-8']")).getText();
+		assertTrue(err==null);
+		TakeScreen();
 //	   
-//	}
-	@AfterTest(groups="opensooq")
+	}
+	@AfterTest(groups="close")
 	public void closepage() {
 		driver.close();
 	}
